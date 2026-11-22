@@ -19,12 +19,12 @@ body{
   font-family:Arial,sans-serif
 }
 header{
-  padding:10px 15px;background:#111c30;
-  border-bottom:1px solid #263650
+  padding:40px 25px;background:#111c30;
+  border-bottom:5px solid #263650
 }
-header h2{margin:0;color:#65d6b0;font-size:20px;text-align: center;}
-header p{color:#a8b6ca;font-size:13px;margin:7px 0 0;text-align:center;}
-main{max-width:1100px;margin:auto;padding:14px}
+header h2{margin:0;color:#65d6b0;font-size:25px;text-align: center;}
+header p{color:#a8b6ca;font-size:13px;margin:10px 0 0;text-align:center;}
+main{max-width:1100px;margin:auto;padding:19px}
 .card{
   background:#142137;border:1px solid #293c58;
   border-radius:13px;padding:16px;margin-bottom:15px
@@ -41,9 +41,9 @@ input{
 button,
 button.secondary {
   width:100%;
-  padding:13px;
+  padding:15px;
   margin:5px 0;
-  border:1px solid rgba(255,255,255,.25);
+  border:1px solid rgba(207, 143, 32, 0.25098039215686274);
   border-radius:10px;
 
   background:linear-gradient(
@@ -264,12 +264,12 @@ h3 {
 
 .login-title {
   text-align: center;
-  font-size: 25px;
-  font-weight: 900;
-  padding: 14px 8px;
+  font-size: 20px;
+  font-weight: 600;
+  padding: 10px 5px;
   border-radius: 50px;
-  color: white;
-  background: linear-gradient(90deg, red, orange, yellow, lime, cyan, blue, violet);
+  color: black;
+  background: linear-gradient(90deg,purple, violet, pink, pink, cyan,violet, violet);
   text-shadow: 0 2px 5px #000;
   margin-bottom: 24px;
 }
@@ -425,7 +425,7 @@ body {
 
 
 <!-- LOGIN SCREEN -->
-<section class="card login-card" id="loginBox" style="display:none">
+<section  login-card" id="loginBox" style="display:none">
 
   <div class="login-title">
     🔒 SECURE LOGIN
@@ -495,7 +495,10 @@ body {
 
   <!-- FOOTER-->
   <div class="footer">
-    <h5>DREAM BIG • INVEST SMART • GROW WINGS</>
+    <h5 style="text-align: center;font-size:14px">DREAM BIG • INVEST SMART • GROW WINGS</h5>
+       <div style="text-align:center;font-size:9px">
+         ©2026 All Foundation Group | All Rights Reserved.
+       </div>
   </div>
 
 </section>
@@ -522,7 +525,6 @@ body {
   <button onclick="registerUser()">
     CREATE ACCOUNT
   </button>
-
   <p id="registerMessage"></p>
 
   <button class="secondary" onclick="showWelcome()">
@@ -602,7 +604,7 @@ body {
   </div>
 
   <div class="card" style="padding:1px;text-align:center;">
-         <h4 style="font-size:12px;margin:5px 0;">Approved Income</h4
+         <h4 style="font-size:12px;margin:5px 0;">Approved Income</h4>
     <h2 id="dashTotalIncome"style="font-size:16px;margin:5px 0;">UGX 0</h2>
   </div>
 
@@ -1481,6 +1483,91 @@ body {
   #membersRegisterTable tbody tr:hover {
     background: #e2f0d9;
   }
+
+/* EXCEL-STYLE LOAN REGISTER */
+
+.loan-applications-table-wrap {
+  width: 100%;
+  overflow: auto;
+  margin: 15px 0;
+  border: 1px solid #526174;
+  border-radius: 6px;
+  background: #ffffff;
+  -webkit-overflow-scrolling: touch;
+  max-height: 650px;
+}
+
+.loan-applications-table {
+  width: 100%;
+  min-width: 1050px;
+  border-collapse: collapse;
+  table-layout: auto;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  color: #222;
+}
+
+.loan-applications-table th {
+  background: #e5e9ef;
+  color: #222;
+  padding: 10px 12px;
+  text-align: center;
+  white-space: nowrap;
+  border: 1px solid #b8c1cc;
+  font-weight: bold;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}
+
+.loan-applications-table td {
+  padding: 9px 12px;
+  border: 1px solid #d0d7de;
+  color: #222;
+  background: #ffffff;
+  vertical-align: middle;
+  white-space: nowrap;
+}
+
+.loan-applications-table tbody tr:nth-child(even) {
+  background: #f5f7fa;
+}
+
+.loan-applications-table tbody tr:nth-child(even) td {
+  background: #f5f7fa;
+}
+
+.loan-applications-table tbody tr:hover td {
+  background: #e8f1fc;
+}
+
+.loan-applications-table td:focus {
+  outline: 2px solid #217346;
+  outline-offset: -2px;
+  background: #f0fff4;
+}
+
+.loan-applications-table th:nth-child(7),
+.loan-applications-table td:nth-child(7) {
+  min-width: 200px;
+  max-width: 260px;
+  white-space: normal;
+  line-height: 1.5;
+}
+
+.loan-applications-table th:last-child,
+.loan-applications-table td:last-child {
+  min-width: 150px;
+  text-align: center;
+}
+
+/* EXCEL-STYLE SELECTED ROW */
+
+.loan-applications-table tbody tr:focus-within td {
+  border-top: 1px solid #217346;
+  border-bottom: 1px solid #217346;
+}
+
 </style>
 
 <div style="overflow-x:auto;">
@@ -1749,22 +1836,77 @@ body {
 </section>
 <!-- END AUDIT LOGS WORKSPACE -->
 
+
 <!-- EXPENSES WORKSPACE -->
 <section id="expensesBox" style="display:none; padding:20px;">
 
   <h2>EXPENSES MANAGEMENT</h2>
-  <p>Record and monitor organizational expenses.</p>
+  <p>Record, approve and monitor organizational expenses.</p>
 
-  <div class="card">
+  <!-- EXPENSE SUMMARY -->
+  <div>
+    <h3>EXPENSE SUMMARY</h3>
+    <p>Total Approved Expenses:
+      <strong id="expenseTotalApproved">UGX 0</strong>
+    </p>
+    <p>Pending Expenses:
+      <strong id="expenseTotalPending">UGX 0</strong>
+    </p>
+    <p>Rejected Expenses:
+      <strong id="expenseTotalRejected">UGX 0</strong>
+    </p>
+  </div>
+
+  <!-- RECORD EXPENSE -->
+  <div>
+    <h3>RECORD NEW EXPENSE</h3>
+
+    <label>Expense Category</label>
+    <select id="expenseCategory">
+      <option value="">Select category</option>
+      <option value="Administration">Administration</option>
+      <option value="Salaries">Salaries</option>
+      <option value="Transport">Transport</option>
+      <option value="Rent">Rent</option>
+      <option value="Utilities">Utilities</option>
+      <option value="Marketing">Marketing</option>
+      <option value="Maintenance">Maintenance</option>
+      <option value="Operations">Operations</option>
+      <option value="Other">Other</option>
+    </select>
+
+    <label>Amount (UGX)</label>
+    <input type="number" id="expenseAmount"
+      min="1" step="1" placeholder="Enter amount">
+
+    <label>Expense Date</label>
+    <input type="date" id="expenseDate">
+
+    <label>Reference Number</label>
+    <input type="text" id="expenseReference"
+      placeholder="Optional reference">
+
+    <label>Description</label>
+    <textarea id="expenseDescription"
+      placeholder="Explain the expense"></textarea>
+
+    <button type="button" onclick="saveExpense()">
+      SUBMIT EXPENSE
+    </button>
+  </div>
+
+  <!-- EXPENSE REGISTER -->
+  <div>
     <h3>EXPENSE REGISTER</h3>
 
-    <input
-      type="text"
-      id="expenseSearch"
+    <button type="button" onclick="loadExpenses()">
+      REFRESH REGISTER
+    </button>
+
+    <input type="text" id="expenseSearch"
       placeholder="Search expenses..."
       oninput="searchExpenses()"
-      style="width:100%;padding:10px;margin-bottom:10px;"
-    >
+      style="width:100%;padding:10px;margin:10px 0;">
 
     <div style="overflow-x:auto;">
       <table style="width:100%;border-collapse:collapse;font-size:12px;">
@@ -1775,16 +1917,33 @@ body {
             <th>Description</th>
             <th>Amount</th>
             <th>Status</th>
+            <th>Actions</th>
           </tr>
         </thead>
         <tbody id="expensesTableBody">
           <tr>
-            <td colspan="5" style="text-align:center;">
-              Expenses will appear here after database connection.
+            <td colspan="6" style="text-align:center;">
+              Expenses will appear here.
             </td>
           </tr>
         </tbody>
       </table>
+    </div>
+  </div>
+
+  <!-- MONTHLY REPORT -->
+  <div>
+    <h3>MONTHLY EXPENSE REPORT</h3>
+
+    <label>Select Month</label>
+    <input type="month" id="expenseReportMonth">
+
+    <button type="button" onclick="generateExpenseReport()">
+      GENERATE REPORT
+    </button>
+
+    <div id="expenseReportResult">
+      Select a month to generate a report.
     </div>
   </div>
 
@@ -1797,19 +1956,48 @@ body {
 </section>
 <!-- END EXPENSES WORKSPACE -->
 
+
 <!-- GUARANTORS WORKSPACE -->
 <section id="guarantorsBox" style="display:none; padding:20px;">
 
   <h2>GUARANTORS MANAGEMENT</h2>
-  <p>View and monitor member guarantor records.</p>
+  <p>Register and manage member loan guarantees.</p>
 
-  <div>
+  <div class="card" id="guarantorFormBox">
+    <h3>REGISTER GUARANTOR</h3>
+
+    <label>Select Loan</label>
+    <select id="guarantorLoan" style="width:100%;padding:10px;margin:8px 0;">
+      <option value="">Loading loans...</option>
+    </select>
+
+    <label>Select Guarantor Member</label>
+    <select id="guarantorMember" style="width:100%;padding:10px;margin:8px 0;">
+      <option value="">Loading members...</option>
+    </select>
+
+    <label>Guaranteed Amount (UGX)</label>
+    <input
+      type="number"
+      id="guaranteedAmount"
+      min="1"
+      step="1"
+      placeholder="Enter guaranteed amount"
+      style="width:100%;padding:10px;margin:8px 0;"
+    >
+
+    <button type="button" onclick="saveGuarantor()">
+      REGISTER GUARANTOR
+    </button>
+  </div>
+
+  <div class="card">
     <h3>GUARANTOR REGISTER</h3>
 
     <input
       type="text"
       id="guarantorSearch"
-      placeholder="Search guarantors..."
+      placeholder="Search member, guarantor or loan..."
       oninput="searchGuarantors()"
       style="width:100%;padding:10px;margin-bottom:10px;"
     >
@@ -1819,16 +2007,19 @@ body {
         <thead>
           <tr>
             <th>Date</th>
-            <th>Member</th>
+            <th>Borrower</th>
             <th>Guarantor</th>
             <th>Loan Reference</th>
+            <th>Guaranteed Amount</th>
             <th>Status</th>
+            <th>Action</th>
           </tr>
         </thead>
+
         <tbody id="guarantorsTableBody">
           <tr>
-            <td colspan="5" style="text-align:center;">
-              Guarantor records will appear here after database connection.
+            <td colspan="7" style="text-align:center;">
+              Guarantor records will appear here.
             </td>
           </tr>
         </tbody>
@@ -1844,6 +2035,8 @@ body {
 
 </section>
 <!-- END GUARANTORS WORKSPACE -->
+
+
 
 <!-- INVESTMENTS WORKSPACE -->
 <section id="investmentsBox" style="display:none; padding:20px;">
@@ -1893,54 +2086,140 @@ body {
 </section>
 <!-- END INVESTMENTS WORKSPACE -->
   
+
 <!-- LOANS WORKSPACE -->
 <section id="loansBox" style="display:none; padding:20px;">
 
   <h2>LOANS MANAGEMENT</h2>
-  <p>View and monitor member loan applications and repayments.</p>
-
-  <div>
-    <h3>LOAN REGISTER</h3>
-
-    <input
-      type="text"
-      id="loanSearch"
-      placeholder="Search loans..."
-      oninput="searchLoans()"
-      style="width:100%;padding:10px;margin-bottom:10px;"
-    >
-
-    <div style="overflow-x:auto;">
-      <table style="width:100%;border-collapse:collapse;font-size:12px;">
-        <thead>
-          <tr>
-            <th>Date</th>
-            <th>Member</th>
-            <th>Loan Reference</th>
-            <th>Principal</th>
-            <th>Balance</th>
-            <th>Status</th>
-          </tr>
-        </thead>
-        <tbody id="loansTableBody">
-          <tr>
-            <td colspan="6" style="text-align:center;">
-              Loan records will appear here after database connection.
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <p id="loansMessage"></p>
+  <p>Manage loan applications, approvals and loan records.</p>
 
   <button type="button" onclick="showFinancialOperations()">
-    BACK
+    BACK TO FINANCIAL OPERATIONS
   </button>
 
+  <hr>
+
+  <!-- LOAN APPLICATION FORM -->
+  <div id="loanApplicationFormBox">
+
+    <h3>NEW LOAN APPLICATION</h3>
+
+    <label>Member</label>
+    <select id="loanApplicationMember" style="width:100%;padding:10px;">
+      <option value="">Select Member</option>
+    </select>
+
+    <br><br>
+
+    <label>Loan Product</label>
+    <select id="loanApplicationProduct" style="width:100%;padding:10px;">
+      <option value="">Select Loan Product</option>
+    </select>
+
+    <br><br>
+
+    <label>Requested Amount (UGX)</label>
+    <input type="number" id="loanRequestedAmount"
+      min="1" step="1" placeholder="Enter amount"
+      style="width:100%;padding:10px;">
+
+    <br><br>
+
+    <label>Repayment Period (Months)</label>
+    <input type="number" id="loanRequestedTerm"
+      min="1" step="1" placeholder="Enter months"
+      style="width:100%;padding:10px;">
+
+    <br><br>
+
+    <label>Loan Purpose</label>
+    <textarea id="loanPurpose"
+      placeholder="Explain the purpose of this loan"
+      style="width:100%;padding:10px;min-height:80px;"></textarea>
+
+    <br><br>
+
+    <button type="button" id="submitLoanApplicationBtn"
+      onclick="submitLoanApplication()">
+      SUBMIT APPLICATION
+    </button>
+
+    <p id="loanApplicationMessage"></p>
+
+  </div>
+
+  <hr>
+
+  <!-- APPLICATION APPROVAL QUEUE -->
+  <h3>LOAN APPLICATIONS</h3>
+
+  <div style="overflow-x:auto;">
+  <table style="width:100%;border-collapse:collapse;font-size:12px;">
+      <thead>
+        <tr>
+          <th>Application No.</th>
+          <th>Member</th>
+          <th>Product</th>
+          <th>Amount</th>
+          <th>Term</th>
+          <th>Status</th>
+          <th>Review Notes</th>
+          <th>Reviewed Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+
+      <tbody id="loanApplicationsTableBody">
+        <tr>
+          <td colspan="7" style="text-align:center;">
+            Applications will appear here.
+          </td>
+        </tr>
+      </tbody>
+    </>
+  </>
+
+  <hr>
+
+
+<h3>LOAN REGISTER</h3>
+
+<input type="text" id="loanSearch"
+  placeholder="Search loans..."
+  oninput="searchLoans()"
+  style="width:100%;padding:10px;margin-bottom:10px;">
+
+<div class="loan-applications-table-wrap">
+
+  <table class="loan-applications-table">
+
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Member</th>
+        <th>Loan Reference</th>
+        <th>Principal</th>
+        <th>Balance</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody id="loansTableBody">
+      <tr>
+        <td colspan="6" style="text-align:center;">
+          Loan records will appear here.
+        </td>
+      </tr>
+    </tbody>
+
+  </table>
+
+</div>
+
+<p id="loansMessage"></p>
+
 </section>
-<!-- END LOANS WORKSPACE -->
+
 
 <!-- REPORTS WORKSPACE -->
 <section id="reportsBox" style="display:none; padding:20px;">
@@ -2840,10 +3119,52 @@ function showFinancialManagement() {
 }
   
  // OPEN LOANS WORKSPACE
-function showLoans() {
+
+async function showLoans() {
+  const permission = currentPermissions.find(p =>
+    p.permission_key === "loans"
+  );
+
+  if (!permission || !permission.can_view) {
+    alert("You are not authorized to access Loans Management.");
+    return;
+  }
+
   hideAllWorkspaces();
-  document.getElementById("loansBox").style.display = "block";
+
+  const box = document.getElementById("loansBox");
+
+  if (!box) {
+    alert("Loans workspace was not found.");
+    return;
+  }
+
+  box.style.display = "block";
+
+  const productFormBox =
+    document.getElementById("loanProductFormBox");
+
+  if (productFormBox) {
+    productFormBox.style.display =
+      permission.can_create || permission.can_update
+        ? "block"
+        : "none";
+  }
+
+  const applicationFormBox =
+    document.getElementById("loanApplicationFormBox");
+
+  if (applicationFormBox) {
+    applicationFormBox.style.display =
+      permission.can_create ? "block" : "none";
+  }
+
+  await loadLoanProducts();
+  await loadLoanApplicationOptions();
+  await loadLoanApplications();
+  await loadLoans();
 }
+
 
 // OPEN REPORTS WORKSPACE
 function showReports() {
@@ -2877,18 +3198,345 @@ function showExpenses() {
   }
 }
 
-  // OPEN GUARANTORS WORKSPACE
+// OPEN GUARANTORS WORKSPACE
 function showGuarantors() {
   hideAllWorkspaces();
 
-  const guarantorsBox = document.getElementById("guarantorsBox");
+  const box = document.getElementById("guarantorsBox");
 
-  if (guarantorsBox) {
-    guarantorsBox.style.display = "block";
-  } else {
-    alert("Guarantors workspace was not found.");
+  if (!box) {
+    alert("Guarantors workspace not found.");
+    return;
+  }
+
+  box.style.display = "block";
+
+  const message = document.getElementById("guarantorsMessage");
+  if (message) message.textContent = "Loading loans and members...";
+
+  loadGuarantorOptions()
+    .then(() => {
+      if (message) message.textContent = "Dropdown loading completed.";
+    })
+    .catch(error => {
+      if (message) message.textContent = "ERROR: " + error.message;
+    });
+
+  loadGuarantors();
+}
+
+  
+// CHECK GUARANTOR PERMISSIONS
+function hasGuarantorPermission(action) {
+  return currentPermissions.some(p =>
+    p.permission_key === "guarantors" &&
+    p[action] === true
+  );
+}
+
+// ESCAPE DATABASE TEXT BEFORE DISPLAY
+function escapeGuarantorText(value) {
+  return String(value ?? "").replace(/[&<>"']/g, char => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char]);
+}
+
+// LOAD LOANS AND MEMBERS FOR GUARANTOR FORM
+
+async function loadGuarantorOptions() {
+  const client = connectSupabase();
+
+  const loanSelect = document.getElementById("guarantorLoan");
+  const memberSelect = document.getElementById("guarantorMember");
+  const message = document.getElementById("guarantorsMessage");
+
+  try {
+    if (!client) {
+      throw new Error("Supabase client is not connected.");
+    }
+
+    message.textContent = "Fetching loans and members...";
+
+    const loanResult = await client
+      .from("loans")
+      .select("id, loan_number, principal_amount, loan_status")
+      .order("created_at", { ascending: false });
+
+    if (loanResult.error) {
+      throw new Error("Loans: " + loanResult.error.message);
+    }
+
+    const memberResult = await client
+      .from("members")
+      .select(`
+        id,
+        membership_number,
+        membership_status,
+        profiles!members_profile_id_fkey(full_name)
+      `)
+      .order("created_at", { ascending: false });
+
+    if (memberResult.error) {
+      throw new Error("Members: " + memberResult.error.message);
+    }
+
+    loanSelect.innerHTML = '<option value="">Select loan</option>';
+
+    (loanResult.data || []).forEach(loan => {
+      const option = document.createElement("option");
+      option.value = loan.id;
+      option.textContent =
+        (loan.loan_number || "Loan") +
+        " | UGX " +
+        Number(loan.principal_amount).toLocaleString("en-UG");
+      loanSelect.appendChild(option);
+    });
+
+    memberSelect.innerHTML =
+      '<option value="">Select guarantor member</option>';
+
+    (memberResult.data || []).forEach(member => {
+      const option = document.createElement("option");
+      option.value = member.id;
+      option.textContent =
+        (member.profiles?.full_name || "Unnamed member") +
+        " | " + member.membership_number;
+      memberSelect.appendChild(option);
+    });
+
+    message.textContent =
+      "Loaded " + (loanResult.data || []).length +
+      " loans and " + (memberResult.data || []).length +
+      " members.";
+
+  } catch (error) {
+    message.textContent = "DROPDOWN ERROR: " + error.message;
+    throw error;
   }
 }
+
+
+// SAVE A GUARANTOR
+async function saveGuarantor() {
+  const message = document.getElementById("guarantorsMessage");
+
+  try {
+    if (!hasGuarantorPermission("can_create")) {
+      throw new Error("You do not have permission to register guarantors.");
+    }
+
+    const loanId =
+      document.getElementById("guarantorLoan").value;
+
+    const memberId =
+      document.getElementById("guarantorMember").value;
+
+    const amount =
+      Number(document.getElementById("guaranteedAmount").value);
+
+    if (!loanId) throw new Error("Please select a loan.");
+    if (!memberId) throw new Error("Please select a guarantor member.");
+
+    if (!Number.isFinite(amount) || amount <= 0) {
+      throw new Error("Enter a valid guaranteed amount.");
+    }
+
+    if (!Number.isInteger(amount)) {
+      throw new Error("Guaranteed amount must be a whole UGX amount.");
+    }
+
+    const client = connectSupabase();
+
+    const { error } = await client
+      .from("loan_guarantors")
+      .insert({
+        loan_id: loanId,
+        guarantor_member_id: memberId,
+        guaranteed_amount: amount,
+        guarantee_status: "pending"
+      });
+
+    if (error) throw error;
+
+    document.getElementById("guarantorLoan").value = "";
+    document.getElementById("guarantorMember").value = "";
+    document.getElementById("guaranteedAmount").value = "";
+
+    message.textContent = "Guarantor registered successfully.";
+
+    await loadGuarantors();
+
+  } catch (error) {
+    message.textContent = "ERROR: " + error.message;
+  }
+}
+
+// LOAD GUARANTOR REGISTER
+async function loadGuarantors() {
+  const client = connectSupabase();
+  const tableBody = document.getElementById("guarantorsTableBody");
+  const formBox = document.getElementById("guarantorFormBox");
+
+  if (!tableBody) return;
+
+  const canCreate = hasGuarantorPermission("can_create");
+  const canUpdate = hasGuarantorPermission("can_update");
+
+  if (formBox) {
+    formBox.style.display = canCreate ? "block" : "none";
+  }
+
+  tableBody.innerHTML =
+    '<tr><td colspan="7">Loading guarantor records...</td></tr>';
+
+  try {
+    if (canCreate) {
+      await loadGuarantorOptions();
+    }
+
+    const { data, error } = await client
+      .from("loan_guarantors")
+      .select(`
+        id,
+        loan_id,
+        guarantor_member_id,
+        guaranteed_amount,
+        guarantee_status,
+        accepted_at,
+        created_at,
+        loans!loan_guarantors_loan_id_fkey (
+          loan_number,
+          members!loans_member_id_fkey (
+            membership_number,
+            profiles!members_profile_id_fkey (
+              full_name
+            )
+          )
+        ),
+        members!loan_guarantors_guarantor_member_id_fkey (
+          membership_number,
+          profiles!members_profile_id_fkey (
+            full_name
+          )
+        )
+      `)
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+
+    tableBody.replaceChildren();
+
+    if (!data || data.length === 0) {
+      tableBody.innerHTML =
+        '<tr><td colspan="7">No guarantor records found.</td></tr>';
+      return;
+    }
+
+    data.forEach(record => {
+      const borrower =
+        record.loans?.members?.profiles?.full_name || "Unknown";
+
+      const guarantor =
+        record.members?.profiles?.full_name || "Unknown";
+
+      const loanNumber =
+        record.loans?.loan_number || "Unavailable";
+
+      const status =
+        (record.guarantee_status || "pending").toLowerCase();
+
+      const date = record.created_at
+        ? new Date(record.created_at).toLocaleDateString()
+        : "N/A";
+
+      const amount = Number(record.guaranteed_amount || 0)
+        .toLocaleString("en-UG");
+
+      const row = document.createElement("tr");
+
+      const actionCell = canUpdate
+        ? `<select onchange="updateGuarantorStatus('${record.id}', this.value)"
+             style="padding:6px;">
+             <option value="">Change status</option>
+             <option value="pending">Pending</option>
+             <option value="accepted">Accepted</option>
+             <option value="rejected">Rejected</option>
+             <option value="released">Released</option>
+           </select>`
+        : "—";
+
+      row.innerHTML = `
+        <td>${escapeGuarantorText(date)}</td>
+        <td>${escapeGuarantorText(borrower)}</td>
+        <td>${escapeGuarantorText(guarantor)}</td>
+        <td>${escapeGuarantorText(loanNumber)}</td>
+        <td>UGX ${escapeGuarantorText(amount)}</td>
+        <td>${escapeGuarantorText(status.toUpperCase())}</td>
+        <td>${actionCell}</td>
+      `;
+
+      tableBody.appendChild(row);
+    });
+
+  } catch (error) {
+    tableBody.innerHTML =
+      '<tr><td colspan="7">Unable to load guarantors.</td></tr>';
+
+    const message = document.getElementById("guarantorsMessage");
+    if (message) message.textContent = "ERROR: " + error.message;
+  }
+}
+
+// UPDATE GUARANTEE STATUS
+async function updateGuarantorStatus(id, status) {
+  if (!status) return;
+
+  const message = document.getElementById("guarantorsMessage");
+
+  try {
+    if (!hasGuarantorPermission("can_update")) {
+      throw new Error("You do not have permission to update guarantors.");
+    }
+
+    const allowedStatuses = [
+      "pending",
+      "accepted",
+      "rejected",
+      "released"
+    ];
+
+    if (!allowedStatuses.includes(status)) {
+      throw new Error("Invalid guarantee status.");
+    }
+
+    const client = connectSupabase();
+
+    const { error } = await client
+      .from("loan_guarantors")
+      .update({
+        guarantee_status: status,
+        accepted_at: status === "accepted"
+          ? new Date().toISOString()
+          : null
+      })
+      .eq("id", id);
+
+    if (error) throw error;
+
+    message.textContent = "Guarantee status updated successfully.";
+
+    await loadGuarantors();
+
+  } catch (error) {
+    message.textContent = "ERROR: " + error.message;
+    await loadGuarantors();
+  }
+}
+
 
 // OPEN INVESTMENTS WORKSPACE
 function showInvestments() {
@@ -2919,22 +3567,421 @@ function searchAuditLogs() {
       : "none";
   });
 }
+
+  
+// ======================================
+// EXPENSES MANAGEMENT
+// ======================================
+
+// OPEN EXPENSES
+function showExpenses() {
+  hideAllWorkspaces();
+
+  const box = document.getElementById("expensesBox");
+  if (!box) {
+    alert("Expenses workspace not found.");
+    return;
+  }
+
+  box.style.display = "block";
+  loadExpenses();
+}
+
+// CHECK EXPENSE PERMISSION
+function hasExpensePermission(action) {
+  return currentPermissions.some(p =>
+    p.permission_key === "expenses" && p[action] === true
+  );
+}
+
+// SAVE EXPENSE
+async function saveExpense() {
+  const message = document.getElementById("expensesMessage");
+
+  try {
+    if (!hasExpensePermission("can_create")) {
+      throw new Error("You do not have permission to record expenses.");
+    }
+
+    const category =
+      document.getElementById("expenseCategory").value;
+
+    const amount =
+      Number(document.getElementById("expenseAmount").value);
+
+    const date =
+      document.getElementById("expenseDate").value;
+
+    const reference =
+      document.getElementById("expenseReference").value.trim();
+
+    const description =
+      document.getElementById("expenseDescription").value.trim();
+
+    if (!category || !date || !Number.isFinite(amount) || amount <= 0) {
+      throw new Error("Enter a category, valid amount and date.");
+    }
+
+    const client = connectSupabase();
+
+    const { data: userData, error: userError } =
+      await client.auth.getUser();
+
+    if (userError) throw userError;
+    if (!userData.user) throw new Error("Please sign in again.");
+
+    message.textContent = "Submitting expense...";
+
+    const { error } = await client
+      .from("accounting_transactions")
+      .insert({
+        transaction_type: "expense",
+        category: category,
+        amount: amount,
+        transaction_date: date,
+        reference_number: reference || null,
+        description: description || null,
+        created_by: userData.user.id
+      });
+
+    if (error) throw error;
+
+    message.textContent =
+      "Expense submitted successfully. Awaiting approval.";
+
+    document.getElementById("expenseCategory").value = "";
+    document.getElementById("expenseAmount").value = "";
+    document.getElementById("expenseDate").value = "";
+    document.getElementById("expenseReference").value = "";
+    document.getElementById("expenseDescription").value = "";
+
+    await loadExpenses();
+
+  } catch (error) {
+    message.textContent = "Expense error: " + error.message;
+  }
+}
+
+// LOAD EXPENSE REGISTER
+async function loadExpenses() {
+  const body = document.getElementById("expensesTableBody");
+  const message = document.getElementById("expensesMessage");
+
+  if (!body) return;
+
+  body.textContent = "Loading expenses...";
+
+  try {
+    const client = connectSupabase();
+const { data: userData, error: userError } =
+  await client.auth.getUser();
+
+if (userError) throw userError;
+
+const signedInUserId = userData.user?.id;
+    
+    const { data, error } = await client
+      .from("accounting_transactions")
+      .select("*")
+      .eq("transaction_type", "expense")
+      .order("transaction_date", { ascending: false });
+
+    if (error) throw error;
+
+    body.replaceChildren();
+
+    const expenses = data || [];
+
+    let approved = 0;
+    let pending = 0;
+    let rejected = 0;
+
+    expenses.forEach(expense => {
+      const amount = Number(expense.amount || 0);
+
+      if (expense.approval_status === "approved") approved += amount;
+      if (expense.approval_status === "pending") pending += amount;
+      if (expense.approval_status === "rejected") rejected += amount;
+
+      const tr = document.createElement("tr");
+
+      const values = [
+        expense.transaction_date || "-",
+        expense.category || "-",
+        expense.description || "-",
+        "UGX " + amount.toLocaleString("en-UG"),
+        expense.approval_status || "Pending"
+      ];
+
+      values.forEach(value => {
+        const td = document.createElement("td");
+        td.textContent = value;
+        td.style.padding = "8px";
+        td.style.borderBottom = "1px solid #555";
+        tr.appendChild(td);
+      });
+
+      const actions = document.createElement("td");
+
+      if (
+        expense.approval_status === "pending" &&
+        hasExpensePermission("can_update")
+      ) {
+        const edit = document.createElement("button");
+        edit.textContent = "EDIT";
+        edit.onclick = () => editExpense(expense);
+        actions.appendChild(edit);
+      }
+
+      if (
+        expense.approval_status === "pending" &&
+        expense.created_by !== signedInUserId &&
+        hasExpensePermission("can_approve")
+      ) {
+        const approve = document.createElement("button");
+        approve.textContent = "APPROVE";
+        approve.onclick = () =>
+          reviewExpense(expense.id, "approved");
+
+        const reject = document.createElement("button");
+        reject.textContent = "REJECT";
+        reject.onclick = () =>
+          reviewExpense(expense.id, "rejected");
+
+        actions.append(approve, reject);
+      }
+
+      tr.appendChild(actions);
+      body.appendChild(tr);
+    });
+
+    document.getElementById("expenseTotalApproved").textContent =
+      "UGX " + approved.toLocaleString("en-UG");
+
+    document.getElementById("expenseTotalPending").textContent =
+      "UGX " + pending.toLocaleString("en-UG");
+
+    document.getElementById("expenseTotalRejected").textContent =
+      "UGX " + rejected.toLocaleString("en-UG");
+
+    if (expenses.length === 0) {
+      const tr = document.createElement("tr");
+      const td = document.createElement("td");
+      td.colSpan = 6;
+      td.textContent = "No expenses recorded yet.";
+      td.style.textAlign = "center";
+      tr.appendChild(td);
+      body.appendChild(tr);
+    }
+
+    searchExpenses();
+
+  } catch (error) {
+    body.textContent = "Loading error: " + error.message;
+    if (message) message.textContent = error.message;
+  }
+}
+
+// EDIT PENDING EXPENSE
+async function editExpense(expense) {
+  try {
+    if (!hasExpensePermission("can_update")) {
+      throw new Error("You cannot edit expenses.");
+    }
+
+    const category = prompt("Enter expense category:", expense.category);
+    if (category === null) return;
+
+    const amountText = prompt("Enter amount:", expense.amount);
+    if (amountText === null) return;
+
+    const date = prompt(
+      "Enter date (YYYY-MM-DD):",
+      expense.transaction_date
+    );
+    if (date === null) return;
+
+    const reference = prompt(
+      "Enter reference number:",
+      expense.reference_number || ""
+    );
+    if (reference === null) return;
+
+    const description = prompt(
+      "Enter description:",
+      expense.description || ""
+    );
+    if (description === null) return;
+
+    const amount = Number(amountText);
+
+    if (!category.trim() || !Number.isFinite(amount) ||
+        amount <= 0 || !date) {
+      throw new Error("Enter valid expense details.");
+    }
+
+    const client = connectSupabase();
+
+    const { error } = await client.rpc(
+      "update_accounting_transaction",
+      {
+        p_transaction_id: expense.id,
+        p_category: category.trim(),
+        p_amount: amount,
+        p_transaction_date: date,
+        p_reference_number: reference.trim(),
+        p_description: description.trim()
+      }
+    );
+
+    if (error) throw error;
+
+    document.getElementById("expensesMessage").textContent =
+      "Expense updated successfully.";
+
+    await loadExpenses();
+
+  } catch (error) {
+    document.getElementById("expensesMessage").textContent =
+      "Editing error: " + error.message;
+  }
+}
+
+// APPROVE OR REJECT EXPENSE
+async function reviewExpense(id, decision) {
+  const message = document.getElementById("expensesMessage");
+
+  try {
+    if (!hasExpensePermission("can_approve")) {
+      throw new Error("You cannot approve expenses.");
+    }
+
+    if (decision !== "approved" && decision !== "rejected") {
+      throw new Error("Invalid approval decision.");
+    }
+
+    let note = null;
+
+    if (decision === "rejected") {
+      note = prompt("Enter rejection reason:");
+      if (note === null) return;
+      if (!note.trim()) {
+        throw new Error("A rejection reason is required.");
+      }
+    }
+
+    message.textContent = "Processing expense approval...";
+
+    const client = connectSupabase();
+
+    const { error } = await client.rpc(
+      "process_accounting_approval",
+      {
+        p_transaction_id: id,
+        p_decision: decision,
+        p_note: note
+      }
+    );
+
+    if (error) throw error;
+
+    message.textContent =
+      decision === "approved"
+        ? "Expense approved successfully."
+        : "Expense rejected successfully.";
+
+    await loadExpenses();
+
+  } catch (error) {
+    message.textContent = "Approval error: " + error.message;
+  }
+}
+
 // SEARCH EXPENSES
 function searchExpenses() {
   const searchInput = document.getElementById("expenseSearch");
-  const tableBody = document.getElementById("expensesTableBody");
+  const body = document.getElementById("expensesTableBody");
 
-  if (!searchInput || !tableBody) return;
+  if (!searchInput || !body) return;
 
-  const searchText = searchInput.value.toLowerCase();
-  const rows = tableBody.querySelectorAll("tr");
+  const term = searchInput.value.toLowerCase();
 
-  rows.forEach(row => {
-    row.style.display = row.textContent.toLowerCase().includes(searchText)
-      ? ""
-      : "none";
+  body.querySelectorAll("tr").forEach(row => {
+    row.style.display =
+      row.textContent.toLowerCase().includes(term) ? "" : "none";
   });
 }
+
+// GENERATE MONTHLY EXPENSE REPORT
+async function generateExpenseReport() {
+  const result = document.getElementById("expenseReportResult");
+  const month = document.getElementById("expenseReportMonth").value;
+
+  if (!month) {
+    result.textContent = "Please select a month.";
+    return;
+  }
+
+  try {
+    result.textContent = "Generating report...";
+
+    const client = connectSupabase();
+
+    const startDate = month + "-01";
+    const [year, monthNumber] = month.split("-").map(Number);
+    const endDate = new Date(year, monthNumber, 0)
+      .toISOString().slice(0, 10);
+
+    const { data, error } = await client
+      .from("accounting_transactions")
+      .select("category, amount, transaction_date, approval_status")
+      .eq("transaction_type", "expense")
+      .gte("transaction_date", startDate)
+      .lte("transaction_date", endDate)
+      .eq("approval_status", "approved")
+      .order("transaction_date", { ascending: true });
+
+    if (error) throw error;
+
+    const expenses = data || [];
+    const total = expenses.reduce(
+      (sum, item) => sum + Number(item.amount || 0), 0
+    );
+
+    const categories = {};
+
+    expenses.forEach(item => {
+      categories[item.category] =
+        (categories[item.category] || 0) + Number(item.amount || 0);
+    });
+
+    result.replaceChildren();
+
+    const heading = document.createElement("h4");
+    heading.textContent = "APPROVED EXPENSES — " + month;
+    result.appendChild(heading);
+
+    const totalLine = document.createElement("p");
+    totalLine.textContent =
+      "Total: UGX " + total.toLocaleString("en-UG");
+    result.appendChild(totalLine);
+
+    Object.entries(categories).forEach(([category, amount]) => {
+      const line = document.createElement("p");
+      line.textContent =
+        category + ": UGX " + amount.toLocaleString("en-UG");
+      result.appendChild(line);
+    });
+
+    if (expenses.length === 0) {
+      result.textContent = "No approved expenses found for this month.";
+    }
+
+  } catch (error) {
+    result.textContent = "Report error: " + error.message;
+  }
+}
+
 
 // SEARCH GUARANTORS
 function searchGuarantors() {
@@ -2986,6 +4033,368 @@ function searchLoans() {
       : "none";
   });
 }
+
+  
+// =====================================
+// LOAN PRODUCTS MANAGEMENT
+// =====================================
+
+function hasLoanPermission(action) {
+  return currentPermissions.some(p =>
+    p.permission_key === "loans" && p[action] === true
+  );
+}
+
+
+// RESET PRODUCT FORM
+function resetLoanProductForm() {
+  document.getElementById("loanProductId").value = "";
+  document.getElementById("loanProductName").value = "";
+  document.getElementById("loanProductDescription").value = "";
+  document.getElementById("loanProductMinAmount").value = "";
+  document.getElementById("loanProductMaxAmount").value = "";
+  document.getElementById("loanProductInterest").value = "";
+  document.getElementById("loanProductMethod").value = "flat";
+  document.getElementById("loanProductMinTerm").value = "";
+  document.getElementById("loanProductMaxTerm").value = "";
+  document.getElementById("loanProductActive").checked = true;
+
+  document.getElementById("loanProductSaveButton").textContent =
+    "SAVE LOAN PRODUCT";
+
+  document.getElementById("loanProductMessage").textContent = "";
+}
+
+
+// SAVE OR UPDATE LOAN PRODUCT
+async function saveLoanProduct() {
+  const message = document.getElementById("loanProductMessage");
+
+  try {
+    const client = connectSupabase();
+
+    const productId =
+      document.getElementById("loanProductId").value;
+
+    const isEditing = Boolean(productId);
+
+    if (isEditing && !hasLoanPermission("can_update")) {
+      throw new Error("You do not have permission to update products.");
+    }
+
+    if (!isEditing && !hasLoanPermission("can_create")) {
+      throw new Error("You do not have permission to create products.");
+    }
+
+    const product = {
+      product_name:
+        document.getElementById("loanProductName").value.trim(),
+
+      description:
+        document.getElementById("loanProductDescription").value.trim(),
+
+      minimum_amount:
+        Number(document.getElementById("loanProductMinAmount").value),
+
+      maximum_amount:
+        Number(document.getElementById("loanProductMaxAmount").value),
+
+      interest_rate:
+        Number(document.getElementById("loanProductInterest").value),
+
+      interest_method:
+        document.getElementById("loanProductMethod").value,
+
+      minimum_term_months:
+        Number(document.getElementById("loanProductMinTerm").value),
+
+      maximum_term_months:
+        Number(document.getElementById("loanProductMaxTerm").value),
+
+      is_active:
+        document.getElementById("loanProductActive").checked
+    };
+
+    if (!product.product_name) {
+      throw new Error("Enter the loan product name.");
+    }
+
+    if (
+      !Number.isFinite(product.minimum_amount) ||
+      product.minimum_amount <= 0 ||
+      !Number.isFinite(product.maximum_amount) ||
+      product.maximum_amount < product.minimum_amount
+    ) {
+      throw new Error("Check the minimum and maximum loan amounts.");
+    }
+
+    if (
+      !Number.isFinite(product.interest_rate) ||
+      product.interest_rate < 0
+    ) {
+      throw new Error("Interest rate cannot be negative.");
+    }
+
+    if (!["flat", "reducing_balance"].includes(product.interest_method)) {
+      throw new Error("Invalid interest calculation method.");
+    }
+
+    if (
+      !Number.isInteger(product.minimum_term_months) ||
+      product.minimum_term_months <= 0 ||
+      !Number.isInteger(product.maximum_term_months) ||
+      product.maximum_term_months < product.minimum_term_months
+    ) {
+      throw new Error("Check the minimum and maximum repayment terms.");
+    }
+
+    message.textContent = "Saving loan product...";
+
+    let result;
+
+    if (isEditing) {
+      result = await client
+        .from("loan_products")
+        .update(product)
+        .eq("id", productId);
+    } else {
+      result = await client
+        .from("loan_products")
+        .insert(product);
+    }
+
+    if (result.error) throw result.error;
+
+    message.textContent = isEditing
+      ? "Loan product updated successfully."
+      : "Loan product registered successfully.";
+
+    resetLoanProductForm();
+
+    await loadLoanProducts();
+
+  } catch (error) {
+    message.textContent = "ERROR: " + error.message;
+  }
+}
+
+
+// LOAD LOAN PRODUCTS
+async function loadLoanProducts() {
+  const tableBody =
+    document.getElementById("loanProductsTableBody");
+
+  if (!tableBody) return;
+
+  tableBody.innerHTML =
+    '<tr><td colspan="7">Loading loan products...</td></tr>';
+
+  try {
+    const client = connectSupabase();
+
+    const { data, error } = await client
+      .from("loan_products")
+      .select(`
+        id,
+        product_name,
+        description,
+        minimum_amount,
+        maximum_amount,
+        interest_rate,
+        interest_method,
+        minimum_term_months,
+        maximum_term_months,
+        is_active,
+        created_at
+      `)
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+
+    tableBody.replaceChildren();
+
+    if (!data || data.length === 0) {
+      tableBody.innerHTML =
+        '<tr><td colspan="7">No loan products registered yet.</td></tr>';
+      return;
+    }
+
+    data.forEach(product => {
+      const row = document.createElement("tr");
+
+      const values = [
+        product.product_name,
+        "UGX " + Number(product.minimum_amount).toLocaleString("en-UG") +
+          " - " +
+          Number(product.maximum_amount).toLocaleString("en-UG"),
+        Number(product.interest_rate) + "%",
+        product.interest_method === "flat"
+          ? "Flat"
+          : "Reducing Balance",
+        product.minimum_term_months + " - " +
+          product.maximum_term_months + " months",
+        product.is_active === false ? "Inactive" : "Active"
+      ];
+
+      values.forEach(value => {
+        const cell = document.createElement("td");
+        cell.textContent = value;
+        cell.style.padding = "8px";
+        row.appendChild(cell);
+      });
+
+      const actionCell = document.createElement("td");
+
+      if (hasLoanPermission("can_update")) {
+        const editButton = document.createElement("button");
+        editButton.type = "button";
+        editButton.textContent = "EDIT";
+
+        editButton.onclick = () =>
+          editLoanProduct(product);
+
+        actionCell.appendChild(editButton);
+
+        const toggleButton = document.createElement("button");
+        toggleButton.type = "button";
+        toggleButton.textContent =
+          product.is_active === false ? "ACTIVATE" : "DEACTIVATE";
+
+        toggleButton.onclick = () =>
+          toggleLoanProduct(product);
+
+        actionCell.appendChild(toggleButton);
+      }
+
+      row.appendChild(actionCell);
+      tableBody.appendChild(row);
+    });
+
+  } catch (error) {
+    tableBody.innerHTML = "";
+
+    const row = document.createElement("tr");
+    const cell = document.createElement("td");
+
+    cell.colSpan = 7;
+    cell.textContent = "Loan products error: " + error.message;
+
+    row.appendChild(cell);
+    tableBody.appendChild(row);
+  }
+}
+
+
+// EDIT LOAN PRODUCT
+function editLoanProduct(product) {
+  if (!hasLoanPermission("can_update")) {
+    alert("You cannot edit loan products.");
+    return;
+  }
+
+  document.getElementById("loanProductId").value =
+    product.id;
+
+  document.getElementById("loanProductName").value =
+    product.product_name || "";
+
+  document.getElementById("loanProductDescription").value =
+    product.description || "";
+
+  document.getElementById("loanProductMinAmount").value =
+    product.minimum_amount;
+
+  document.getElementById("loanProductMaxAmount").value =
+    product.maximum_amount;
+
+  document.getElementById("loanProductInterest").value =
+    product.interest_rate;
+
+  document.getElementById("loanProductMethod").value =
+    product.interest_method;
+
+  document.getElementById("loanProductMinTerm").value =
+    product.minimum_term_months;
+
+  document.getElementById("loanProductMaxTerm").value =
+    product.maximum_term_months;
+
+  document.getElementById("loanProductActive").checked =
+    product.is_active !== false;
+
+  document.getElementById("loanProductSaveButton").textContent =
+    "UPDATE LOAN PRODUCT";
+
+  document.getElementById("loanProductMessage").textContent =
+    "Editing: " + product.product_name;
+
+  document.getElementById("loanProductFormBox")
+    .scrollIntoView({ behavior: "smooth" });
+}
+
+
+// ACTIVATE OR DEACTIVATE PRODUCT
+async function toggleLoanProduct(product) {
+  if (!hasLoanPermission("can_update")) {
+    alert("You cannot change product status.");
+    return;
+  }
+
+  const newStatus = product.is_active === false;
+
+  if (!confirm(
+    (newStatus ? "Activate " : "Deactivate ") +
+    product.product_name + "?"
+  )) {
+    return;
+  }
+
+  const message = document.getElementById("loanProductMessage");
+
+  try {
+    const client = connectSupabase();
+
+    const { error } = await client
+      .from("loan_products")
+      .update({ is_active: newStatus })
+      .eq("id", product.id);
+
+    if (error) throw error;
+
+    message.textContent =
+      "Product status updated successfully.";
+
+    await loadLoanProducts();
+
+  } catch (error) {
+    message.textContent =
+      "Status update error: " + error.message;
+  }
+}
+
+
+// SEARCH LOAN PRODUCTS
+function searchLoanProducts() {
+  const searchInput =
+    document.getElementById("loanProductSearch");
+
+  const tableBody =
+    document.getElementById("loanProductsTableBody");
+
+  if (!searchInput || !tableBody) return;
+
+  const searchText = searchInput.value.toLowerCase();
+
+  tableBody.querySelectorAll("tr").forEach(row => {
+    row.style.display =
+      row.textContent.toLowerCase().includes(searchText)
+        ? ""
+        : "none";
+  });
+}
+
+// END LOAN PRODUCTS MANAGEMENT
+
 
 // SEARCH REPORTS
 function searchReports() {
@@ -4778,6 +6187,474 @@ document.getElementById("memberActivationMethod")
     }
 
   });
+
+  
+// ======================================
+// LOAN APPLICATIONS AND APPROVAL SYSTEM
+// ======================================
+
+async function showLoanApplicationsWorkspace() {
+  hideAllWorkspaces();
+
+  document.getElementById("loansBox").style.display = "block";
+
+  const canCreate = currentPermissions.some(p =>
+    p.permission_key === "loans" && p.can_create
+  );
+
+  const canApprove = currentPermissions.some(p =>
+    p.permission_key === "loans" && p.can_approve
+  );
+
+  document.getElementById("loanApplicationFormBox").style.display =
+    canCreate ? "block" : "none";
+
+  await loadLoanApplicationOptions();
+  await loadLoanApplications();
+  await loadLoans();
+}
+
+
+// LOAD MEMBERS AND PRODUCTS
+async function loadLoanApplicationOptions() {
+  const client = connectSupabase();
+
+  const memberSelect = document.getElementById("loanApplicationMember");
+  const productSelect = document.getElementById("loanApplicationProduct");
+
+  memberSelect.innerHTML = '<option value="">Select Member</option>';
+  productSelect.innerHTML = '<option value="">Select Loan Product</option>';
+
+  try {
+    const { data: members, error: memberError } = await client
+      .from("members")
+      .select("id, membership_number, profile_id, profiles!members_profile_id_fkey(full_name)")
+      .order("created_at", { ascending: false });
+
+    if (memberError) throw memberError;
+
+    (members || []).forEach(member => {
+      const option = document.createElement("option");
+      option.value = member.id;
+      option.textContent =
+        (member.profiles?.full_name || "Member") +
+        " - " + member.membership_number;
+
+      memberSelect.appendChild(option);
+    });
+
+    const { data: products, error: productError } = await client
+      .from("loan_products")
+      .select("id, product_name, minimum_amount, maximum_amount, minimum_term_months, maximum_term_months")
+      .eq("is_active", true)
+      .order("product_name");
+
+    if (productError) throw productError;
+
+    (products || []).forEach(product => {
+      const option = document.createElement("option");
+      option.value = product.id;
+      option.textContent =
+        product.product_name +
+        " (UGX " + Number(product.minimum_amount).toLocaleString() +
+        " - " + Number(product.maximum_amount).toLocaleString() + ")";
+
+      option.dataset.minAmount = product.minimum_amount;
+      option.dataset.maxAmount = product.maximum_amount;
+      option.dataset.minTerm = product.minimum_term_months;
+      option.dataset.maxTerm = product.maximum_term_months;
+
+      productSelect.appendChild(option);
+    });
+
+  } catch (error) {
+    console.error("Loan options error:", error);
+    document.getElementById("loanApplicationMessage").textContent =
+      "Unable to load members or loan products: " + error.message;
+  }
+}
+
+
+// SUBMIT APPLICATION
+async function submitLoanApplication() {
+  const client = connectSupabase();
+
+  const memberId =
+    document.getElementById("loanApplicationMember").value;
+
+  const productId =
+    document.getElementById("loanApplicationProduct").value;
+
+  const amount = Number(
+    document.getElementById("loanRequestedAmount").value
+  );
+
+  const term = Number(
+    document.getElementById("loanRequestedTerm").value
+  );
+
+  const purpose =
+    document.getElementById("loanPurpose").value.trim();
+
+  const message =
+    document.getElementById("loanApplicationMessage");
+
+  const button =
+    document.getElementById("submitLoanApplicationBtn");
+
+  const productSelect =
+    document.getElementById("loanApplicationProduct");
+
+  const selectedProduct =
+    productSelect.options[productSelect.selectedIndex];
+
+  if (!memberId || !productId || !amount || !term || !purpose) {
+    message.textContent = "Please complete all application fields.";
+    return;
+  }
+
+  if (
+    amount < Number(selectedProduct.dataset.minAmount) ||
+    amount > Number(selectedProduct.dataset.maxAmount)
+  ) {
+    message.textContent = "Amount is outside the selected product limits.";
+    return;
+  }
+
+  if (
+    term < Number(selectedProduct.dataset.minTerm) ||
+    term > Number(selectedProduct.dataset.maxTerm)
+  ) {
+    message.textContent = "Term is outside the selected product limits.";
+    return;
+  }
+
+  button.disabled = true;
+  message.textContent = "Submitting application...";
+
+  try {
+    const { data: userData, error: userError } =
+      await client.auth.getUser();
+
+    if (userError) throw userError;
+
+    if (!userData.user) {
+      throw new Error("Please sign in again.");
+    }
+
+    const applicationNumber =
+      "APP-" +
+      Date.now().toString() +
+      "-" +
+      Math.floor(Math.random() * 1000);
+
+    const { data, error } = await client
+      .from("loan_applications")
+      .insert({
+        application_number: applicationNumber,
+        member_id: memberId,
+        loan_product_id: productId,
+        requested_amount: amount,
+        requested_term_months: term,
+        loan_purpose: purpose,
+        application_status: "pending",
+        application_date: new Date().toISOString()
+      })
+      .select()
+      .single();
+
+    if (error) throw error;
+
+    message.textContent =
+      "Application submitted successfully. Reference: " +
+      data.application_number;
+
+    document.getElementById("loanRequestedAmount").value = "";
+    document.getElementById("loanRequestedTerm").value = "";
+    document.getElementById("loanPurpose").value = "";
+
+    await loadLoanApplications();
+
+  } catch (error) {
+    console.error("Loan submission error:", error);
+    message.textContent = "Submission failed: " + error.message;
+  } finally {
+    button.disabled = false;
+  }
+}
+
+
+// LOAD APPLICATIONS
+async function loadLoanApplications() {
+  const client = connectSupabase();
+
+  const tbody =
+    document.getElementById("loanApplicationsTableBody");
+
+  tbody.innerHTML =
+    '<tr><td colspan="9">Loading applications...</td></tr>';
+
+  try {
+    const { data, error } = await client
+      .from("loan_applications")
+      .select(`
+        id,
+        application_number,
+        requested_amount,
+        requested_term_months,
+                application_status,
+        application_date,
+        review_notes,
+        reviewed_at,
+                members!loan_applications_member_id_fkey (
+          membership_number,
+                  profiles!members_profile_id_fkey(full_name)
+        ),
+        loan_products(product_name),
+        review_notes,
+        reviewed_at
+      `)
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+
+    tbody.replaceChildren();
+
+    if (!data || data.length === 0) {
+      tbody.innerHTML =
+        '<tr><td colspan="9">No loan applications found.</td></tr>';
+      return;
+    }
+
+    const canApprove = currentPermissions.some(p =>
+      p.permission_key === "loans" && p.can_approve
+    );
+
+    data.forEach(application => {
+      const row = document.createElement("tr");
+
+      const memberName =
+        application.members?.profiles?.full_name || "Member";
+
+            const reviewDate = application.reviewed_at
+        ? new Date(application.reviewed_at).toLocaleDateString()
+        : "-";
+
+      const reviewNotes = application.review_notes || "-";
+
+      const cells = [
+        application.application_number,
+        memberName,
+        application.loan_products?.product_name || "Product",
+        "UGX " + Number(application.requested_amount).toLocaleString(),
+        application.requested_term_months + " months",
+        application.application_status,
+        reviewNotes,
+        reviewDate
+      ];
+
+      cells.forEach(value => {
+        const td = document.createElement("td");
+        td.textContent = value;
+        row.appendChild(td);
+      });
+
+      const actionCell = document.createElement("td");
+
+      if (
+        canApprove &&
+        ["pending", "under_review"].includes(
+          application.application_status
+        )
+      ) {
+        const approveButton = document.createElement("button");
+        approveButton.textContent = "APPROVE";
+        approveButton.onclick = () =>
+          approveLoanApplication(application.id);
+
+        actionCell.appendChild(approveButton);
+
+        const rejectButton = document.createElement("button");
+        rejectButton.textContent = "REJECT";
+        rejectButton.style.marginLeft = "5px";
+        rejectButton.onclick = () =>
+          rejectLoanApplication(application.id);
+
+        actionCell.appendChild(rejectButton);
+      } else {
+        actionCell.textContent = "-";
+      }
+
+      row.appendChild(actionCell);
+      tbody.appendChild(row);
+    });
+
+  } catch (error) {
+    console.error("Load applications error:", error);
+    tbody.innerHTML =
+      '<tr><td colspan="9">Error: ' + error.message + '</td></tr>';
+  }
+}
+
+
+// APPROVE APPLICATION
+async function approveLoanApplication(applicationId) {
+  const notes = prompt("Enter approval notes (optional):");
+
+  if (notes === null) return;
+
+  if (!confirm("Approve this application and create the loan record?")) {
+    return;
+  }
+
+  const client = connectSupabase();
+
+  try {
+    const { data, error } = await client.rpc(
+      "approve_loan_application",
+      {
+        p_application_id: applicationId,
+        p_review_notes: notes || null
+      }
+    );
+
+    if (error) throw error;
+
+    alert("Loan approved successfully. Loan ID: " + data);
+
+    await loadLoanApplications();
+    await loadLoans();
+
+  } catch (error) {
+    console.error("Loan approval error:", error);
+    alert("Approval failed: " + error.message);
+  }
+}
+
+
+// REJECT APPLICATION
+
+async function rejectLoanApplication(applicationId) {
+  const notes = prompt("Enter the reason for rejecting this loan application:");
+
+  if (notes === null) return;
+
+  if (!notes.trim()) {
+    alert("Please provide a rejection reason.");
+    return;
+  }
+
+  if (!confirm("Are you sure you want to reject this application?")) {
+    return;
+  }
+  
+  const client = connectSupabase();
+ 
+  try {
+    const { error } = await client.rpc(
+      "reject_loan_application",
+      {
+        p_application_id: applicationId,
+        p_review_notes: notes.trim()
+      }
+    );
+
+    if (error) throw error;
+
+    alert("Loan application rejected successfully.");
+
+    await loadLoanApplications();
+    await loadLoans();
+
+  } catch (error) {
+    console.error("Loan rejection error:", error);
+    alert("Could not reject application: " + error.message);
+  }
+}
+
+
+
+// LOAD APPROVED LOANS
+async function loadLoans() {
+  const client = connectSupabase();
+
+  const tbody = document.getElementById("loansTableBody");
+
+  tbody.innerHTML =
+    '<tr><td colspan="6">Loading loans...</td></tr>';
+
+  try {
+    const { data, error } = await client
+      .from("loans")
+      .select(`
+        id,
+        loan_number,
+        principal_amount,
+        outstanding_balance,
+        loan_status,
+        approval_date,
+                members!loans_member_id_fkey (
+          membership_number,
+          profiles!members_profile_id_fkey(full_name)
+        )
+      `)
+      .order("created_at", { ascending: false });
+
+    if (error) throw error;
+
+    tbody.replaceChildren();
+
+    if (!data || data.length === 0) {
+      tbody.innerHTML =
+        '<tr><td colspan="6">No loans have been approved yet.</td></tr>';
+      return;
+    }
+
+    data.forEach(loan => {
+      const row = document.createElement("tr");
+
+      const values = [
+        loan.approval_date
+          ? new Date(loan.approval_date).toLocaleDateString()
+          : "-",
+        loan.members?.profiles?.full_name || "Member",
+        loan.loan_number,
+        "UGX " + Number(loan.principal_amount).toLocaleString(),
+        "UGX " + Number(loan.outstanding_balance).toLocaleString(),
+        loan.loan_status
+      ];
+
+      values.forEach(value => {
+        const td = document.createElement("td");
+        td.textContent = value;
+        row.appendChild(td);
+      });
+
+      tbody.appendChild(row);
+    });
+
+  } catch (error) {
+    console.error("Load loans error:", error);
+    tbody.innerHTML =
+      '<tr><td colspan="6">Error: ' + error.message + '</td></tr>';
+  }
+}
+
+
+// SEARCH LOANS
+function searchLoans() {
+  const search = document
+    .getElementById("loanSearch")
+    .value.toLowerCase();
+
+  document.querySelectorAll("#loansTableBody tr").forEach(row => {
+    row.style.display =
+      row.textContent.toLowerCase().includes(search)
+        ? ""
+        : "none";
+  });
+}
+
   
 </script>
 
